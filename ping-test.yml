@@ -1,8 +1,10 @@
 ---
 - name: commvault status
   gather_facts: false
-  hosts: backupProxyServer:mediaAgentServer
+  hosts: backupProxyServer:mediaAgentsServer
   tasks:
     - name: CLMP port status
       shell: timeout 5 bash -c 'cat < /dev/null > /dev/udp/10.2.122.178/389'; echo $?
-      
+      register: results
+    - debug:
+      var: results.stdout
