@@ -5,11 +5,10 @@
   tasks:
     - name: ping a host
       ping:
-
 ---
 - name: commvault status
   gather_facts: false
-  hosts: backupProxyServerr
+  hosts: backupProxyServer
   tasks:
     - name: commvault status command
       shell: commvault status
