@@ -5,7 +5,7 @@
   tasks:
     - name: ping a host
       ping:
----
+
 - name: commvault status
   gather_facts: false
   hosts: backupProxyServer
