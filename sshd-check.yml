@@ -1,0 +1,13 @@
+- hosts: localhost
+  vars:
+    match_lines: "{{ check_config.stdout_lines|
+                     map('regex_search', '^\\s*PermitRootLogin\\s+no$')|
+                     select }}"
+  tasks:
+    - command: cat /etc/ssh/sshd_config
+      register: check_config
+    - debug:
+        var: match_lines
+    - debug:
+        msg: This server is OK
+      when: match_lines|length > 0
