@@ -14,5 +14,5 @@
         msg: This server is OK
       when: match_lines|length > 0
     - debug:
-        msg: This server is OK
+        msg: This server is NOK
       when: match_lines|length < 0      
