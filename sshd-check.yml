@@ -1,5 +1,6 @@
 ---
 - hosts: backupProxyServer:mediaAgentsServer
+  become: yes
   vars:
     match_lines: "{{ check_config.stdout_lines|
                      map('regex_search', '^\\s*PermitRootLogin\\s+no$')|
